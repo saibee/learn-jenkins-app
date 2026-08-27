@@ -25,7 +25,7 @@ pipeline {
                '''
             }
         }
-        satge ('Test'){
+        stage ('Test'){
             echo 'Testing learning app...'
              steps {
                 sh '''
