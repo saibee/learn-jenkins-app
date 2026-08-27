@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        BUILD_FILE_NAME = 'index.html'
+    }
+
     stages {
         
         stage('Build') {
@@ -25,8 +29,8 @@ pipeline {
             echo 'Testing learning app...'
              steps {
                 sh '''
-                    test -f build/index.html
-                    npm run build/index.html
+                    test -f build/BUILD_FILE_NAME
+                    npm run build/BUILD_FILE_NAME
                 '''
              }
         }
