@@ -25,6 +25,7 @@ pipeline {
                '''
             }
         }
+
         stage ('Test'){
             
              steps {
@@ -37,4 +38,10 @@ pipeline {
              }
         }
     }
+
+    post {
+        success{
+            archiveArtifacts artifacts: 'build/**'
+        }
+     }
 }
