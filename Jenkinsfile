@@ -26,8 +26,10 @@ pipeline {
             }
         }
         stage ('Test'){
-            echo 'Testing learning app...'
+            
              steps {
+                echo 'Testing learning app...'
+                
                 sh '''
                     test -f build/BUILD_FILE_NAME
                     npm run build/BUILD_FILE_NAME
