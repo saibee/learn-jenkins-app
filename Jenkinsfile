@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+        
         stage('Build') {
             agent {
                 docker {
@@ -19,6 +20,15 @@ pipeline {
                     ls -la
                '''
             }
+        }
+        satge ('Test'){
+            echo 'Testing learning app...'
+             steps {
+                sh '''
+                    test -f build/index.html
+                    npm run build/index.html
+                '''
+             }
         }
     }
 }
