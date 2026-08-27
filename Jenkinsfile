@@ -9,7 +9,8 @@ pipeline {
                     image 'node:18-alpine'
                     reuseNode true
                 }
-             }
+            }
+
             steps {
                sh '''
                     ls -la
@@ -24,14 +25,14 @@ pipeline {
 
         stage ('Test'){
 
-             agent {
+            agent {
                 docker {
                     image 'node:18-alpine'
                     reuseNode true
                 }
-             }
+            }
             
-             steps {
+            steps {
 
                 echo 'Test stage'
 
@@ -39,7 +40,7 @@ pipeline {
                     test -f build/index.html
                     npm test
                 '''
-             }
+            }
         }
 
         stage ('E2E'){
@@ -61,9 +62,10 @@ pipeline {
             }
         }
     }
+    
     post {
         always {
            junit 'test-results/junit.xml'
         }
-     }
+    }
 }
