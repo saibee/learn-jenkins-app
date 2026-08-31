@@ -50,5 +50,15 @@
     "titleTemplate": "{classname}-{title}",
     "ancestorSeparator": " › ",
     "usePathForSuiteName": "true"
+  },
+  "allowScripts": {
+    "esbuild@0.25.4": true,
+    "esbuild@0.19.11": true,
+    "esbuild@0.25.2": true,
+    "core-js@3.33.0": true,
+    "core-js-pure@3.33.0": true,
+    "netlify-cli@20.1.1": true,
+    "sharp@0.32.6": true,
+    "unix-dgram@2.0.7": true
   }
 }
