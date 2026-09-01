@@ -104,7 +104,7 @@ pipeline {
             }
 
             environment {
-                CI_ENVIRONMENT_URL = 'PUT YOUR NETLIFY SITE URL HERE'
+                CI_ENVIRONMENT_URL = 'https://clinquant-nasturtium-ede9a9.netlify.app'
             }
 
             steps {
