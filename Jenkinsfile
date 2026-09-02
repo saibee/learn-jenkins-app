@@ -16,13 +16,16 @@ pipeline {
                     image 'amazon/aws-cli'
                     args "--entrypoint=''"
                 }
+                environment{
+                    AWS_S3_BUCKET = 'mybucket'
+                }
                 steps{
                     withCredentials([usernamePassword(credentialsId: 'abc', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     
                         sh '''
                             aws --version
                             echo "Hello s3" > index.html
-                            aws s3 cp test.txt s3://mybucket/test2.txt                        
+                            aws s3 cp test.txt s3://$AWS_S3_BUCKET/test2.txt                        
                             
                         '''
                     }
